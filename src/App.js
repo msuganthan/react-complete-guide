@@ -11,8 +11,14 @@ class App extends Component {
     ],
   };
 
-  switchNameHandler = () => {
-    console.log("Was clicked");
+  switchNameHandler = (newName) => {
+    this.setState({
+      persons: [
+        { name: newName, age: "28" },
+        { name: "Gokul", age: "12" },
+        { name: "Gautam", age: "10" },
+      ],
+    });
   };
 
   render() {
@@ -20,10 +26,15 @@ class App extends Component {
       <div className='App'>
         <h1>Hi..</h1>
         <p>This is working</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
+        <button
+          //This can be inefficient use bind if possible.
+          onClick={() => this.switchNameHandler("Suganthan Madhavan Pillai")}>
+          Switch Name
+        </button>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
+          click={this.switchNameHandler.bind(this, "Sugan!!!")}
         />
         <Person
           name={this.state.persons[1].name}
