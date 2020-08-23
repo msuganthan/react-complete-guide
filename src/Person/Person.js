@@ -10,8 +10,15 @@ const Person = (props) => {
     return (
         
         <div className='Person'>
-            <p>I'm {props.name} and I'm {props.age} old</p>
-            <input type = 'text' value={props.name} onChange={props.changed}/>
+            {
+                /**
+                 * Click is a property.
+                 */
+            }
+            <p onClick = {props.click} >I'm {props.name} and I'm {props.age} old</p>
+            <input type     = 'text'
+                   value    = {props.name} 
+                   onChange = {props.changed}/>
         </div>
     )
 
