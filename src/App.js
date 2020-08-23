@@ -7,32 +7,21 @@ class App extends Component {
   state = {
     userName: 'Sugan'
   }
-
-  /**
-   * This is a function which is invoked on change event. 
-   * So I am taking event as a parameter and the setting the state.
-   */
+  
   usernameChangeHandler = (event) => {
-    this.setState({userName: event.target.value});
+    this.setState({userName: event.target.value})
   }
 
   render() {
     return (
       <div>
-        {/* Configuring the components here*/}
-        {/* changed and currentName is a props.*/}
-        <UserInput
-          changed={this.usernameChangeHandler}
-          currentName={this.state.userName}
-        />
-        
-        {/*Username is a prop for that we are setting the state name*/}
-        <UserOutput 
-          userName={this.state.userName}
-        />
+        <UserInput changed     ={this.usernameChangeHandler}
+                   currentName = {this.state.userName}/>
+        <UserOutput userName   = {this.state.userName}/>
       </div>
-    )
+    );
   }
+
 }
 
 export default App

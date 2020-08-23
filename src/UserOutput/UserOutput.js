@@ -1,8 +1,9 @@
 import React from 'react';
 
-const userOutput = ( props ) => {
+const UserOutput = (props) => {
 
-    {/*Directly using the prop username*/
+    {
+        /*Directly using the prop username*/
     }
     return (
         <div className='userOutput'>
@@ -12,4 +13,5 @@ const userOutput = ( props ) => {
 
 }
 
-export default userOutput;
+export default UserOutput;
+
