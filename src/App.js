@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
-import './App.css'
+import classes from './App.module.css'
 import Person from './Person/Person';
 import Validation from './Validation/Validation';
 import Char from './Char/Char'
@@ -83,20 +83,20 @@ class App extends Component {
               clicked={() => this.deleteCharHandler(index)}/>
     })
 
-    const classes = []
+    const assignedClasses = []
     if(this.state.persons.length <= 2) 
-      classes.push('res')
+      assignedClasses.push(classes.red)
     if(this.state.persons.length <= 1)
-      classes.push('bold')
+      assignedClasses.push(classes.bold)
 
     return (
 
-        <div className='App'>
+        <div className={classes.App}>
           <UserInput changed     = {this.nameChangeHandler}
                     currentName = {this.state.userName}/>
           <UserOutput userName   = {this.state.userName}/>
         
-          <button className = 'button'
+          <button className={classes.Button}
                   onClick = {this.togglePersonHandler}>Toggle Person</button>
           {persons}
           
@@ -118,7 +118,7 @@ class App extends Component {
           <input type='text'
                 onChange= {this.inputChangeHandler}
                 value   = {this.state.userInput}/>
-          <p className={classes.join(' ')}>{this.state.userInput}</p>
+          <p className={assignedClasses.join(' ')}>{this.state.userInput}</p>
           <Validation inputLength = {this.state.userInput.length}/>
           {charList}
         </div>
