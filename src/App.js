@@ -5,6 +5,7 @@ import classes from './App.module.css'
 import Person from './Person/Person';
 import Validation from './Validation/Validation';
 import Char from './Char/Char'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 class App extends Component {
 
@@ -66,11 +67,12 @@ class App extends Component {
       persons = (
         <div>
           {this.state.persons.map((p, index) => {
-            return <Person click   = {() => this.deletePersonHandler(index)}
+            return <ErrorBoundary key     = {p.id}>
+              <Person click   = {() => this.deletePersonHandler(index)}
                            name    = {p.name} 
                            age     = {p.age}
-                           key     = {p.id}
                            changed = {(event) => this.usernameChangeHandler(event, p.id)} />
+            </ErrorBoundary>
           })}
         </div>
       );
