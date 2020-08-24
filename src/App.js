@@ -5,20 +5,6 @@ import './App.css'
 import Person from './Person/Person';
 import Validation from './Validation/Validation';
 import Char from './Char/Char'
-import styled from 'styled-components'
-
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red' : 'green'};
-  font:            inherit;
-  border:          1px solid blue;
-  padding:         8px;
-  cursor:          pointer;
-
-  &:hover {
-    background-color: lightgreen;
-    color: black;
-  }
-`;
 
 class App extends Component {
 
@@ -74,18 +60,6 @@ class App extends Component {
   }
   render() {
 
-    const style = {
-      backgroundColor: 'white',
-      font:            'inherit',
-      border:          '1px solid blue',
-      padding:         '8px',
-      cursor:          'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-    }
-
     let persons = null;
 
     if(this.state.showPersons) {
@@ -100,10 +74,6 @@ class App extends Component {
           })}
         </div>
       );
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
     }
 
     const charList = this.state.userInput.split('').map((ch, index) => {
@@ -126,8 +96,8 @@ class App extends Component {
                     currentName = {this.state.userName}/>
           <UserOutput userName   = {this.state.userName}/>
         
-          <StyledButton alt={this.state.showPersons}
-                  onClick = {this.togglePersonHandler}>Toggle Person</StyledButton>
+          <button className = 'button'
+                  onClick = {this.togglePersonHandler}>Toggle Person</button>
           {persons}
           
           {/* {
